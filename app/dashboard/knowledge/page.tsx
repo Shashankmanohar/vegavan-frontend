@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import { Loader2, Plus, Trash2, HelpCircle, BookOpen, Sparkles } from 'lucide-react';
+import { API_BASE_URL } from '../../config';
 
 interface KnowledgeItem {
   _id: string;
@@ -22,7 +23,7 @@ export default function KnowledgeBase() {
   const fetchKnowledge = async () => {
     try {
       const token = localStorage.getItem('token');
-      const res = await fetch('http://localhost:5000/api/chatbot/knowledge', {
+      const res = await fetch(`${API_BASE_URL}/api/chatbot/knowledge`, {
         headers: { 'Authorization': `Bearer ${token}` },
       });
 
@@ -51,7 +52,7 @@ export default function KnowledgeBase() {
 
     try {
       const token = localStorage.getItem('token');
-      const res = await fetch('http://localhost:5000/api/chatbot/knowledge', {
+      const res = await fetch(`${API_BASE_URL}/api/chatbot/knowledge`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -78,7 +79,7 @@ export default function KnowledgeBase() {
 
     try {
       const token = localStorage.getItem('token');
-      const res = await fetch(`http://localhost:5000/api/chatbot/knowledge/${id}`, {
+      const res = await fetch(`${API_BASE_URL}/api/chatbot/knowledge/${id}`, {
         method: 'DELETE',
         headers: { 'Authorization': `Bearer ${token}` },
       });

@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import { MessageSquare, Users, MessageCircleCode, Calendar, ArrowRight, Loader2 } from 'lucide-react';
+import { API_BASE_URL } from '../config';
 
 interface TimelineItem {
   date: string;
@@ -34,7 +35,7 @@ export default function Dashboard() {
     const fetchAnalytics = async () => {
       try {
         const token = localStorage.getItem('token');
-        const res = await fetch('http://localhost:5000/api/chatbot/analytics', {
+        const res = await fetch(`${API_BASE_URL}/api/chatbot/analytics`, {
           headers: {
             'Authorization': `Bearer ${token}`,
           },
@@ -48,7 +49,7 @@ export default function Dashboard() {
         setData(analytics);
 
         // Fetch Captured Visitor Leads
-        const leadsRes = await fetch('http://localhost:5000/api/chatbot/leads', {
+        const leadsRes = await fetch(`${API_BASE_URL}/api/chatbot/leads`, {
           headers: {
             'Authorization': `Bearer ${token}`,
           },
@@ -264,7 +265,7 @@ export default function Dashboard() {
           <div className="bg-black/40 p-4 rounded-xl font-mono text-[11px] text-zinc-300 border border-white/5 select-all break-all leading-relaxed">
             {`<!-- OmniAI Widget -->
 <script
-  src="http://localhost:5000/chatbot.js"
+  src="${API_BASE_URL}/chatbot.js"
   data-user-id="${data.timeline.length ? 'YOUR_USER_ID' : '...'}">
 </script>`}
           </div>

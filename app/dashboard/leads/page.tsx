@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import { Users, Loader2, Phone, Calendar, MessageSquare, Trash2, ChevronLeft, ChevronRight, Download } from 'lucide-react';
+import { API_BASE_URL } from '../../config';
 
 interface Lead {
   _id: string;
@@ -24,7 +25,7 @@ export default function LeadsPage() {
     const fetchLeads = async () => {
       try {
         const token = localStorage.getItem('token');
-        const res = await fetch('http://localhost:5000/api/chatbot/leads', {
+        const res = await fetch(`${API_BASE_URL}/api/chatbot/leads`, {
           headers: {
             'Authorization': `Bearer ${token}`,
           },
@@ -50,7 +51,7 @@ export default function LeadsPage() {
     if (!confirm('Are you sure you want to delete this lead?')) return;
     try {
       const token = localStorage.getItem('token');
-      const res = await fetch(`http://localhost:5000/api/chatbot/leads/${id}`, {
+      const res = await fetch(`${API_BASE_URL}/api/chatbot/leads/${id}`, {
         method: 'DELETE',
         headers: {
           'Authorization': `Bearer ${token}`
@@ -78,7 +79,7 @@ export default function LeadsPage() {
     if (!confirm('WARNING: Are you sure you want to delete ALL captured leads? This action is permanent and cannot be undone.')) return;
     try {
       const token = localStorage.getItem('token');
-      const res = await fetch('http://localhost:5000/api/chatbot/leads', {
+      const res = await fetch(`${API_BASE_URL}/api/chatbot/leads`, {
         method: 'DELETE',
         headers: {
           'Authorization': `Bearer ${token}`

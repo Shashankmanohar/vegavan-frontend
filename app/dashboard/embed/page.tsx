@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import { Copy, Check, Terminal, ExternalLink, ShieldCheck } from 'lucide-react';
+import { API_BASE_URL } from '../../config';
 
 export default function EmbedCode() {
   const [userId, setUserId] = useState('');
@@ -14,7 +15,7 @@ export default function EmbedCode() {
 
   const embedScript = `<!-- Vegavan AI Support Chatbot -->
 <script
-  src="http://localhost:5000/chatbot.js"
+  src="${API_BASE_URL}/chatbot.js"
   data-user-id="${userId}">
 </script>`;
 

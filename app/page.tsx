@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import Logo from './components/Logo';
+import { API_BASE_URL } from './config';
 
 export default function Home() {
   return (
@@ -190,7 +191,7 @@ export default function Home() {
               </div>
               <div className="flex flex-col justify-center py-16 px-8 items-start bg-white/[0.005]">
                 <div className="bg-black p-5 border border-white/10 font-mono text-[10px] text-zinc-300 text-left select-all leading-relaxed break-all w-full">
-                  {`<script src="http://localhost:5000/chatbot.js" data-user-id="user_id"></script>`}
+                  {`<script src="${API_BASE_URL}/chatbot.js" data-user-id="user_id"></script>`}
                 </div>
               </div>
             </div>

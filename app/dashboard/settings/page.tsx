@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import { Loader2, Save, Send, Sparkles, Palette, Monitor } from 'lucide-react';
+import { API_BASE_URL } from '../../config';
 
 interface ChatbotConfig {
   businessName: string;
@@ -72,7 +73,7 @@ export default function Settings() {
         const id = localStorage.getItem('userId') || '';
         setUserId(id);
 
-        const res = await fetch('http://localhost:5000/api/chatbot/config', {
+        const res = await fetch(`${API_BASE_URL}/api/chatbot/config`, {
           headers: { 'Authorization': `Bearer ${token}` },
         });
 
@@ -120,7 +121,7 @@ export default function Settings() {
 
     try {
       const token = localStorage.getItem('token');
-      const res = await fetch('http://localhost:5000/api/chatbot/config', {
+      const res = await fetch(`${API_BASE_URL}/api/chatbot/config`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -152,7 +153,7 @@ export default function Settings() {
     setChatLoading(true);
 
     try {
-      const res = await fetch('http://localhost:5000/api/chat', {
+      const res = await fetch(`${API_BASE_URL}/api/chat`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
