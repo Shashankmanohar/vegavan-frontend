@@ -65,6 +65,7 @@ export default function Settings() {
   const [userMsg, setUserMsg] = useState('');
   const [chatLoading, setChatLoading] = useState(false);
   const [userId, setUserId] = useState('');
+  const [previewOpen, setPreviewOpen] = useState(true);
 
   useEffect(() => {
     const fetchConfig = async () => {

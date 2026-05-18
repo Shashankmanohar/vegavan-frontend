@@ -113,7 +113,12 @@ export default function Login() {
           </div>
 
           <div className="flex flex-col gap-1.5 text-left">
-            <label className="text-[10px] font-bold uppercase tracking-wider text-zinc-400">Password</label>
+            <div className="flex justify-between items-center">
+              <label className="text-[10px] font-bold uppercase tracking-wider text-zinc-400">Password</label>
+              <Link href="/forgot-password" className="text-[10px] text-white hover:text-zinc-300 font-semibold underline underline-offset-2">
+                Forgot Password?
+              </Link>
+            </div>
             <input
               type="password"
               value={password}
