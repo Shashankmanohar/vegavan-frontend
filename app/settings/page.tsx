@@ -7,6 +7,7 @@ import { API_BASE_URL } from '../config';
 interface ChatbotConfig {
   businessName: string;
   supportEmail: string;
+  supportPhone?: string;
   tone: string;
   systemPrompt: string;
   primaryColor: string;
@@ -22,6 +23,7 @@ export default function Settings() {
   const [config, setConfig] = useState<ChatbotConfig>({
     businessName: 'My SaaS Assistant',
     supportEmail: 'support@example.com',
+    supportPhone: '',
     tone: 'friendly',
     systemPrompt: 'You are a helpful customer support agent.',
     primaryColor: '#6366f1',
@@ -167,7 +169,7 @@ export default function Settings() {
             </div>
           )}
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             <div className="flex flex-col gap-1.5">
               <label className="text-xs font-semibold text-slate-400">Business Name</label>
               <input
@@ -187,6 +189,17 @@ export default function Settings() {
                 onChange={(e) => setConfig({ ...config, supportEmail: e.target.value })}
                 className="w-full bg-white/5 border border-white/10 rounded-xl py-2.5 px-4 text-white text-sm outline-none focus:border-indigo-500 transition"
                 required
+              />
+            </div>
+
+            <div className="flex flex-col gap-1.5">
+              <label className="text-xs font-semibold text-slate-400">Support Phone</label>
+              <input
+                type="text"
+                value={config.supportPhone || ''}
+                onChange={(e) => setConfig({ ...config, supportPhone: e.target.value })}
+                placeholder="+1 234 567 890"
+                className="w-full bg-white/5 border border-white/10 rounded-xl py-2.5 px-4 text-white text-sm outline-none focus:border-indigo-500 transition"
               />
             </div>
           </div>
