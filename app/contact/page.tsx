@@ -2,12 +2,12 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
-import { Loader2, CheckCircle, Mail, MapPin, Send } from 'lucide-react';
-import Logo from '../components/Logo';
+import { Loader2, ArrowRight, Mail, MapPin, Building2, CheckCircle2, Phone } from 'lucide-react';
 
 export default function Contact() {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
+  const [company, setCompany] = useState('');
   const [message, setMessage] = useState('');
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState('');
@@ -17,222 +17,200 @@ export default function Contact() {
     setLoading(true);
     setSuccess('');
 
-    // Simulate sending message
+    // Simulate API call
     setTimeout(() => {
       setLoading(false);
-      setSuccess('Your message has been delivered to the Webflora Tech Desk. Our customer relations team will respond within 12 business hours.');
+      setSuccess("Thank you! Your message has been securely transmitted. A Vegavan specialist will contact you shortly.");
       setName('');
       setEmail('');
+      setCompany('');
       setMessage('');
     }, 1500);
   };
 
   return (
-    <div className="relative min-h-screen bg-background text-white overflow-x-hidden font-sans">
+    <div className="relative min-h-screen bg-background text-gray-900 font-sans overflow-x-hidden">
       
-      {/* Background Decorative Soft Monochrome Glows */}
-      <div className="absolute top-[-10%] left-[-15%] w-[60vw] h-[60vw] rounded-full bg-white/5 blur-[160px] pointer-events-none" />
-      <div className="absolute bottom-[10%] right-[-15%] w-[50vw] h-[50vw] rounded-full bg-zinc-800/10 blur-[150px] pointer-events-none" />
+      {/* Refined Ambient Background Elements */}
+      <div className="absolute top-0 inset-x-0 h-[500px] bg-gradient-to-b from-white to-background pointer-events-none" />
+      <div className="absolute top-[-10%] left-[-20%] w-[80vw] h-[80vw] lg:w-[50vw] lg:h-[50vw] rounded-full bg-primary/[0.03] blur-[80px] lg:blur-[120px] pointer-events-none" />
 
-      {/* Main Structural Layout Container (Grid System) */}
-      <div className="max-w-6xl mx-auto px-6 py-8 flex flex-col gap-0 border-x border-white/5">
-        
-        {/* Navigation Bar Header (Classic Minimalist) */}
-        <header className="flex items-center justify-between w-full py-6 px-8 border-b border-white/5 z-20">
-          <Link href="/" className="flex items-center gap-3 group">
-            <div className="w-8 h-8 rounded bg-white flex items-center justify-center text-black shadow-md shadow-white/5 transition group-hover:scale-105">
-              <Logo size="md" className="text-black" />
-            </div>
-            <div className="flex flex-col text-left">
-              <span className="font-serif-classic font-bold text-2xl tracking-wider bg-gradient-to-r from-white via-zinc-100 to-zinc-400 bg-clip-text text-transparent leading-none">
-                Vegavan AI
-              </span>
-              <span className="text-[8px] text-zinc-500 font-semibold tracking-wider uppercase mt-1">A Product of Webflora Technologies</span>
-            </div>
-          </Link>
-          <nav className="flex items-center gap-6 md:gap-8">
-            <Link href="/" className="text-[10px] font-bold uppercase tracking-[0.2em] text-zinc-400 hover:text-white transition">
-              Home
-            </Link>
-            <Link href="/about" className="text-[10px] font-bold uppercase tracking-[0.2em] text-zinc-400 hover:text-white transition">
-              About
-            </Link>
-            <Link href="/contact" className="text-[10px] font-bold uppercase tracking-[0.2em] text-white transition">
-              Contact
-            </Link>
-            <Link href="/login" className="text-[10px] font-bold uppercase tracking-[0.2em] text-zinc-400 hover:text-white transition">
-              Log In
-            </Link>
-            <Link href="/signup" className="text-[10px] font-bold uppercase tracking-[0.2em] bg-white hover:bg-zinc-200 text-black py-3 px-7 rounded-none transition shadow-lg shadow-white/5">
-              Get Started
-            </Link>
-          </nav>
-        </header>
+      {/* Main Structural Container */}
+      <main className="relative w-full flex flex-col items-center">
 
-        {/* Form and Details Layout split into two asymmetric columns */}
-        <section className="grid grid-cols-1 lg:grid-cols-12 border-b border-white/5 items-stretch min-h-[550px] z-10">
-          
-          {/* Left Column: Direct Inquiries (45%) */}
-          <div className="lg:col-span-5 flex flex-col justify-center items-start text-left gap-10 py-16 px-8 lg:pr-12 border-b lg:border-b-0 lg:border-r border-white/5 relative">
-            <div className="absolute top-8 right-8 font-serif-classic text-[180px] font-light text-white/[0.01] pointer-events-none select-none">
-              C
-            </div>
-
-            <div className="flex flex-col gap-3">
-              <div className="inline-flex items-center gap-2.5 bg-white/5 text-white border border-white/10 text-[9px] font-bold uppercase tracking-[0.25em] py-2 px-4 self-start">
-                Get In Touch
-              </div>
-              <h1 className="font-serif-classic text-4xl md:text-5xl font-light tracking-tight text-white leading-tight mt-2">
-                Initiate a <br />
-                <span className="font-normal italic bg-gradient-to-r from-white via-zinc-200 to-zinc-500 bg-clip-text text-transparent">
-                  conversation.
-                </span>
-              </h1>
-              <p className="text-xs text-zinc-400 leading-relaxed font-light max-w-sm mt-2">
-                Whether you are exploring high-volume enterprise integrations, custom branding guidelines, or technical deployment support, our lab desk is here to assist.
-              </p>
-            </div>
-
-            {/* Structured Contact Details */}
-            <div className="flex flex-col gap-6 w-full">
-              <div className="flex items-start gap-4">
-                <div className="w-8 h-8 rounded-none border border-white/10 flex items-center justify-center text-zinc-400 shrink-0 mt-0.5">
-                  <Mail className="w-3.5 h-3.5" />
-                </div>
-                <div className="flex flex-col text-left">
-                  <span className="text-[9px] font-bold text-zinc-500 uppercase tracking-widest">Digital Correspondences</span>
-                  <span className="text-xs text-white font-medium mt-1">support@webflora.tech</span>
-                  <span className="text-xs text-zinc-400 font-light mt-0.5">enterprise@vegavan.ai</span>
-                </div>
-              </div>
-
-              <div className="flex items-start gap-4">
-                <div className="w-8 h-8 rounded-none border border-white/10 flex items-center justify-center text-zinc-400 shrink-0 mt-0.5">
-                  <MapPin className="w-3.5 h-3.5" />
-                </div>
-                <div className="flex flex-col text-left">
-                  <span className="text-[9px] font-bold text-zinc-500 uppercase tracking-widest">Innovation Labs</span>
-                  <span className="text-xs text-white font-medium mt-1">Webflora Technologies HQ</span>
-                  <span className="text-xs text-zinc-400 font-light mt-0.5">Suite 408, Silicon Towers, Bangalore, India</span>
-                </div>
-              </div>
-            </div>
+        {/* Hero Section */}
+        <section className="w-full max-w-7xl mx-auto px-4 sm:px-6 md:px-10 pt-16 sm:pt-20 md:pt-32 pb-12 sm:pb-16 md:pb-24 flex flex-col items-center text-center relative z-10">
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/5 text-primary border border-primary/10 text-[10px] sm:text-[11px] font-bold uppercase tracking-widest mb-6 sm:mb-8 shadow-sm">
+            Support & Sales
           </div>
-
-          {/* Right Column: Interaction Form (55%) */}
-          <div className="lg:col-span-7 flex flex-col justify-center py-16 px-8 md:px-12 bg-white/[0.005]">
-            <div className="w-full max-w-xl flex flex-col gap-6">
-              
-              <div className="flex flex-col gap-2">
-                <span className="text-[9px] text-zinc-500 font-bold uppercase tracking-[0.25em]">Direct Message Desk</span>
-                <h2 className="font-serif-classic text-2xl text-white font-light">Send an Inbound Inquiry</h2>
-              </div>
-
-              {success && (
-                <div className="p-4 rounded-none bg-white/5 border border-white/10 text-left flex gap-3.5 items-start animate-fadeIn">
-                  <CheckCircle className="w-5 h-5 text-white shrink-0 mt-0.5" />
-                  <div className="flex flex-col gap-1">
-                    <span className="text-xs font-bold text-white uppercase tracking-wider">Inquiry Dispatched</span>
-                    <span className="text-[11px] leading-relaxed text-zinc-300 font-light">{success}</span>
-                  </div>
-                </div>
-              )}
-
-              <form onSubmit={handleSubmit} className="flex flex-col gap-5">
-                
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-                  <div className="flex flex-col gap-1.5 text-left">
-                    <label className="text-[9px] font-bold uppercase tracking-wider text-zinc-500">Your Full Name</label>
-                    <input
-                      type="text"
-                      value={name}
-                      onChange={(e) => setName(e.target.value)}
-                      placeholder="e.g. Julian Vane"
-                      required
-                      disabled={loading}
-                      className="w-full bg-black border border-white/10 rounded-none py-3.5 px-4 text-white text-xs outline-none focus:border-white/40 transition font-light"
-                    />
-                  </div>
-
-                  <div className="flex flex-col gap-1.5 text-left">
-                    <label className="text-[9px] font-bold uppercase tracking-wider text-zinc-500">Corporate Email</label>
-                    <input
-                      type="email"
-                      value={email}
-                      onChange={(e) => setEmail(e.target.value)}
-                      placeholder="e.g. vane@enterprise.com"
-                      required
-                      disabled={loading}
-                      className="w-full bg-black border border-white/10 rounded-none py-3.5 px-4 text-white text-xs outline-none focus:border-white/40 transition font-light"
-                    />
-                  </div>
-                </div>
-
-                <div className="flex flex-col gap-1.5 text-left">
-                  <label className="text-[9px] font-bold uppercase tracking-wider text-zinc-500">Your Message</label>
-                  <textarea
-                    rows={5}
-                    value={message}
-                    onChange={(e) => setMessage(e.target.value)}
-                    placeholder="Describe your enterprise requirements or technical inquiries..."
-                    required
-                    disabled={loading}
-                    className="w-full bg-black border border-white/10 rounded-none py-3.5 px-4 text-white text-xs outline-none focus:border-white/40 transition font-light resize-none leading-relaxed"
-                  />
-                </div>
-
-                <button
-                  type="submit"
-                  disabled={loading}
-                  className="glow-btn bg-white hover:bg-zinc-200 text-black font-bold uppercase tracking-[0.2em] text-[10px] py-4 rounded-none transition flex items-center justify-center gap-2 cursor-pointer w-full md:w-auto md:self-start md:px-10"
-                >
-                  {loading ? (
-                    <Loader2 className="w-4 h-4 animate-spin text-black" />
-                  ) : (
-                    <>
-                      Transmit Message
-                      <Send className="w-3.5 h-3.5" />
-                    </>
-                  )}
-                </button>
-
-              </form>
-            </div>
-          </div>
-
+          <h1 className="font-serif-classic text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-gray-900 leading-[1.1] sm:leading-[1.05] max-w-4xl">
+            How can we help your <br className="hidden sm:block" />
+            <span className="text-primary italic">business grow?</span>
+          </h1>
+          <p className="mt-6 sm:mt-8 text-base sm:text-lg md:text-xl text-gray-600 max-w-2xl font-light leading-relaxed px-2">
+            Whether you are looking for enterprise pricing, technical support, or strategic partnerships, our global team is ready to assist you.
+          </p>
         </section>
 
-        {/* Footer Attribution Section */}
-        <footer className="py-12 px-8 border-t border-white/5 flex flex-col md:flex-row items-center justify-between gap-6 z-20">
-          <div className="flex items-center gap-2.5">
-            <div className="w-7 h-7 rounded bg-white/10 flex items-center justify-center text-white border border-white/10">
-              <Logo size="sm" className="text-white" />
+        {/* Contact Infrastructure */}
+        <section className="w-full max-w-7xl mx-auto px-4 sm:px-6 md:px-10 pb-20 sm:pb-32 grid grid-cols-1 lg:grid-cols-12 gap-8 sm:gap-12 items-start relative z-10">
+          
+          {/* Left Column: Contact Methods & Offices (5 cols) */}
+          <div className="lg:col-span-5 flex flex-col gap-5 sm:gap-6 w-full order-2 lg:order-1">
+            
+            {/* Direct Contact Cards */}
+            <div className="glass-card rounded-2xl p-6 sm:p-8 group">
+              <div className="w-12 h-12 rounded-xl bg-primary/5 border border-primary/10 flex items-center justify-center text-primary mb-5 sm:mb-6 group-hover:bg-primary group-hover:text-white transition-colors">
+                <Mail className="w-5 h-5" />
+              </div>
+              <h3 className="font-serif-classic text-xl font-bold text-gray-900 mb-2">Chat with Sales</h3>
+              <p className="text-sm text-gray-600 leading-relaxed mb-5 sm:mb-6">
+                Interested in Vegavan AI for your enterprise? Speak with our sales team to find the best plan for your needs.
+              </p>
+              <a href="mailto:sales@vegavan.ai" className="inline-flex items-center gap-2 text-sm font-semibold text-primary hover:text-primary/80 transition-colors">
+                sales@vegavan.ai <ArrowRight className="w-4 h-4" />
+              </a>
             </div>
-            <div className="flex flex-col text-left">
-              <span className="text-xs font-bold text-white">Vegavan AI Chatbot</span>
-              <span className="text-[8px] text-zinc-500 font-semibold uppercase tracking-wider mt-0.5">by Webflora Technologies</span>
-            </div>
-          </div>
-          <div className="flex items-center gap-6">
-            <Link href="/" className="text-[10px] font-semibold uppercase tracking-wider text-zinc-500 hover:text-white transition">
-              Home
-            </Link>
-            <Link href="/about" className="text-[10px] font-semibold uppercase tracking-wider text-zinc-500 hover:text-white transition">
-              About
-            </Link>
-            <Link href="/contact" className="text-[10px] font-semibold uppercase tracking-wider text-white transition">
-              Contact
-            </Link>
-            <Link href="/login" className="text-[10px] font-semibold uppercase tracking-wider text-zinc-500 hover:text-white transition">
-              Dashboard
-            </Link>
-          </div>
-          <p className="text-[10px] text-zinc-600 font-semibold tracking-wider uppercase select-none">
-            © {new Date().getFullYear()} Vegavan AI. Designed and engineered as a sub-brand of Webflora Technologies.
-          </p>
-        </footer>
 
-      </div>
+            <div className="glass-card rounded-2xl p-6 sm:p-8 group">
+              <div className="w-12 h-12 rounded-xl bg-primary/5 border border-primary/10 flex items-center justify-center text-primary mb-5 sm:mb-6 group-hover:bg-primary group-hover:text-white transition-colors">
+                <Building2 className="w-5 h-5" />
+              </div>
+              <h3 className="font-serif-classic text-xl font-bold text-gray-900 mb-2">Technical Support</h3>
+              <p className="text-sm text-gray-600 leading-relaxed mb-5 sm:mb-6">
+                Need help integrating our AI with your existing CRM? Our engineering support team is here 24/7.
+              </p>
+              <a href="mailto:support@webflora.tech" className="inline-flex items-center gap-2 text-sm font-semibold text-primary hover:text-primary/80 transition-colors">
+                support@webflora.tech <ArrowRight className="w-4 h-4" />
+              </a>
+            </div>
+
+            <div className="glass-card rounded-2xl p-6 sm:p-8 group">
+              <div className="w-12 h-12 rounded-xl bg-primary/5 border border-primary/10 flex items-center justify-center text-primary mb-5 sm:mb-6 group-hover:bg-primary group-hover:text-white transition-colors">
+                <Phone className="w-5 h-5" />
+              </div>
+              <h3 className="font-serif-classic text-xl font-bold text-gray-900 mb-2">Call Us Directly</h3>
+              <p className="text-sm text-gray-600 leading-relaxed mb-5 sm:mb-6">
+                Need immediate assistance? Call our support desk directly to speak with an expert right now.
+              </p>
+              <a href="tel:+918540814729" className="inline-flex items-center gap-2 text-sm font-semibold text-primary hover:text-primary/80 transition-colors">
+                +91 85408 14729 <ArrowRight className="w-4 h-4" />
+              </a>
+            </div>
+
+            {/* Address Block */}
+            <div className="mt-4 px-4 py-6 border-l-2 border-primary/20">
+              <h4 className="text-[11px] font-bold text-gray-400 uppercase tracking-widest mb-4">Global Headquarters</h4>
+              <div className="flex items-start gap-3">
+                <MapPin className="w-5 h-5 text-primary shrink-0 mt-0.5" />
+                <div className="flex flex-col">
+                  <span className="text-sm font-bold text-gray-800">Webflora Technologies</span>
+                  <span className="text-sm text-gray-600 mt-1 leading-relaxed">Suite 408, Silicon Towers<br />Bangalore, India 560001</span>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          {/* Right Column: Premium Form (7 cols) */}
+          <div className="lg:col-span-7 w-full order-1 lg:order-2">
+            <div className="bg-white border border-gray-200 rounded-3xl p-6 sm:p-8 md:p-12 shadow-classic-lg relative overflow-hidden">
+              
+              <h2 className="font-serif-classic text-2xl sm:text-3xl font-bold text-gray-900 mb-2">Send us a message</h2>
+              <p className="text-gray-500 text-sm mb-8 sm:mb-10">We usually respond within a few hours.</p>
+
+              {success ? (
+                <div className="flex flex-col items-center justify-center text-center py-8 sm:py-12 px-2 sm:px-4 animate-in fade-in duration-500">
+                  <div className="w-16 h-16 rounded-full bg-green-50 border border-green-100 flex items-center justify-center text-green-600 mb-6">
+                    <CheckCircle2 className="w-8 h-8" />
+                  </div>
+                  <h3 className="font-serif-classic text-xl font-bold text-gray-900 mb-2">Message Transmitted</h3>
+                  <p className="text-sm text-gray-600 leading-relaxed max-w-sm">
+                    {success}
+                  </p>
+                  <button onClick={() => setSuccess('')} className="mt-8 text-sm font-medium text-primary hover:text-primary/80 transition-colors">
+                    Send another message
+                  </button>
+                </div>
+              ) : (
+                <form onSubmit={handleSubmit} className="flex flex-col gap-6 animate-in fade-in duration-500">
+                  
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                    <div className="flex flex-col gap-2">
+                      <label className="text-[13px] font-semibold text-gray-700">Full Name</label>
+                      <input
+                        type="text"
+                        value={name}
+                        onChange={(e) => setName(e.target.value)}
+                        placeholder="John Doe"
+                        required
+                        disabled={loading}
+                        className="w-full bg-gray-50 border border-gray-200 rounded-lg py-3.5 px-4 text-gray-900 text-sm placeholder:text-gray-400 outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all focus:bg-white shadow-sm"
+                      />
+                    </div>
+
+                    <div className="flex flex-col gap-2">
+                      <label className="text-[13px] font-semibold text-gray-700">Work Email</label>
+                      <input
+                        type="email"
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
+                        placeholder="john@company.com"
+                        required
+                        disabled={loading}
+                        className="w-full bg-gray-50 border border-gray-200 rounded-lg py-3.5 px-4 text-gray-900 text-sm placeholder:text-gray-400 outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all focus:bg-white shadow-sm"
+                      />
+                    </div>
+                  </div>
+
+                  <div className="flex flex-col gap-2">
+                    <label className="text-[13px] font-semibold text-gray-700">Company Name <span className="text-gray-400 font-normal">(Optional)</span></label>
+                    <input
+                      type="text"
+                      value={company}
+                      onChange={(e) => setCompany(e.target.value)}
+                      placeholder="Acme Corp"
+                      disabled={loading}
+                      className="w-full bg-gray-50 border border-gray-200 rounded-lg py-3.5 px-4 text-gray-900 text-sm placeholder:text-gray-400 outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all focus:bg-white shadow-sm"
+                    />
+                  </div>
+
+                  <div className="flex flex-col gap-2">
+                    <label className="text-[13px] font-semibold text-gray-700">How can we help?</label>
+                    <textarea
+                      rows={5}
+                      value={message}
+                      onChange={(e) => setMessage(e.target.value)}
+                      placeholder="Briefly describe your needs..."
+                      required
+                      disabled={loading}
+                      className="w-full bg-gray-50 border border-gray-200 rounded-lg py-3.5 px-4 text-gray-900 text-sm placeholder:text-gray-400 outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all focus:bg-white resize-none shadow-sm"
+                    />
+                  </div>
+
+                  <div className="pt-4">
+                    <button
+                      type="submit"
+                      disabled={loading}
+                      className="w-full bg-primary hover:bg-primary/90 text-white font-bold text-[15px] py-4 rounded-lg transition-all flex items-center justify-center gap-2 disabled:opacity-70 disabled:cursor-not-allowed shadow-classic hover:shadow-classic-lg"
+                    >
+                      {loading ? (
+                        <Loader2 className="w-5 h-5 animate-spin text-white" />
+                      ) : (
+                        "Send Message"
+                      )}
+                    </button>
+                    <p className="text-[12px] text-gray-500 text-center mt-5 px-2">
+                      By submitting, you agree to our <a href="#" className="text-primary hover:underline transition-colors">Privacy Policy</a> and <a href="#" className="text-primary hover:underline transition-colors">Terms of Service</a>.
+                    </p>
+                  </div>
+                </form>
+              )}
+            </div>
+          </div>
+        </section>
+
+      </main>
     </div>
   );
 }

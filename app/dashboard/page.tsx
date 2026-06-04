@@ -71,15 +71,15 @@ export default function Dashboard() {
   if (loading) {
     return (
       <div className="flex flex-col items-center justify-center py-20 gap-3">
-        <Loader2 className="w-8 h-8 animate-spin text-white" />
-        <p className="text-zinc-400 text-sm">Loading SaaS Analytics...</p>
+        <Loader2 className="w-8 h-8 animate-spin text-gray-900" />
+        <p className="text-gray-500 text-sm">Loading SaaS Analytics...</p>
       </div>
     );
   }
 
   if (error || !data) {
     return (
-      <div className="p-6 rounded-2xl bg-white/5 border border-white/10 text-white flex flex-col gap-2">
+      <div className="p-6 rounded-2xl bg-white border border-gray-200 text-gray-900 flex flex-col gap-2">
         <h3 className="font-bold">Analytics Loading Error</h3>
         <p className="text-sm">{error || 'Could not fetch platform data.'}</p>
       </div>
@@ -95,14 +95,14 @@ export default function Dashboard() {
       <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
         <div className="flex flex-col gap-1">
           <h1 className="text-3xl font-extrabold tracking-tight">Overview</h1>
-          <p className="text-zinc-400 text-sm">Monitor your customer engagement and AI responses</p>
+          <p className="text-gray-500 text-sm">Monitor your customer engagement and AI responses</p>
         </div>
-        <div className="flex items-center gap-2 bg-white/5 border border-white/10 px-4 py-2.5 rounded-xl self-start">
+        <div className="flex items-center gap-2 bg-white border border-gray-200 px-4 py-2.5 rounded-xl self-start">
           <span className="flex h-2 w-2 relative">
             <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-75"></span>
             <span className="relative inline-flex rounded-full h-2 w-2 bg-white"></span>
           </span>
-          <span className="text-[10px] font-bold uppercase tracking-wider text-zinc-300">7-Day Free Trial Active</span>
+          <span className="text-[10px] font-bold uppercase tracking-wider text-gray-600">7-Day Free Trial Active</span>
         </div>
       </div>
 
@@ -111,10 +111,10 @@ export default function Dashboard() {
         {/* Total Conversations */}
         <div className="glass-card p-6 rounded-2xl flex items-center justify-between">
           <div className="flex flex-col gap-1.5">
-            <span className="text-xs font-semibold text-zinc-500 uppercase tracking-wider">Total Conversations</span>
-            <span className="text-3xl font-bold text-white">{data.totalConversations}</span>
+            <span className="text-xs font-semibold text-gray-500 uppercase tracking-wider">Total Conversations</span>
+            <span className="text-3xl font-bold text-gray-900">{data.totalConversations}</span>
           </div>
-          <div className="w-12 h-12 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-white">
+          <div className="w-12 h-12 rounded-xl bg-white border border-gray-200 flex items-center justify-center text-gray-900">
             <MessageSquare className="w-5 h-5" />
           </div>
         </div>
@@ -122,10 +122,10 @@ export default function Dashboard() {
         {/* Total Messages Exchanged */}
         <div className="glass-card p-6 rounded-2xl flex items-center justify-between">
           <div className="flex flex-col gap-1.5">
-            <span className="text-xs font-semibold text-zinc-500 uppercase tracking-wider">Messages Exchanged</span>
-            <span className="text-3xl font-bold text-white">{data.totalMessages}</span>
+            <span className="text-xs font-semibold text-gray-500 uppercase tracking-wider">Messages Exchanged</span>
+            <span className="text-3xl font-bold text-gray-900">{data.totalMessages}</span>
           </div>
-          <div className="w-12 h-12 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-white">
+          <div className="w-12 h-12 rounded-xl bg-white border border-gray-200 flex items-center justify-center text-gray-900">
             <MessageCircleCode className="w-5 h-5" />
           </div>
         </div>
@@ -133,10 +133,10 @@ export default function Dashboard() {
         {/* Active Sessions */}
         <div className="glass-card p-6 rounded-2xl flex items-center justify-between">
           <div className="flex flex-col gap-1.5">
-            <span className="text-xs font-semibold text-zinc-500 uppercase tracking-wider">Active Visitors</span>
-            <span className="text-3xl font-bold text-white">{data.totalActiveUsers}</span>
+            <span className="text-xs font-semibold text-gray-500 uppercase tracking-wider">Active Visitors</span>
+            <span className="text-3xl font-bold text-gray-900">{data.totalActiveUsers}</span>
           </div>
-          <div className="w-12 h-12 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-white">
+          <div className="w-12 h-12 rounded-xl bg-white border border-gray-200 flex items-center justify-center text-gray-900">
             <Users className="w-5 h-5" />
           </div>
         </div>
@@ -144,13 +144,13 @@ export default function Dashboard() {
 
       {/* Analytics Timeline Chart (Custom HTML/SVG Zero-Dependency) */}
       <div className="glass-panel p-6 md:p-8 rounded-2xl flex flex-col gap-6">
-        <div className="flex items-center justify-between border-b border-white/5 pb-4">
+        <div className="flex items-center justify-between border-b border-gray-200 pb-4">
           <div className="flex flex-col gap-0.5">
-            <h3 className="text-lg font-bold text-white">Inbound Conversation Activity</h3>
-            <p className="text-xs text-zinc-400">Chats initialized over the past 7 days</p>
+            <h3 className="text-lg font-bold text-gray-900">Inbound Conversation Activity</h3>
+            <p className="text-xs text-gray-500">Chats initialized over the past 7 days</p>
           </div>
-          <div className="flex items-center gap-2 text-xs text-zinc-400 bg-white/5 py-1.5 px-3 rounded-lg border border-white/5">
-            <Calendar className="w-3.5 h-3.5 text-white" />
+          <div className="flex items-center gap-2 text-xs text-gray-500 bg-white py-1.5 px-3 rounded-lg border border-gray-200">
+            <Calendar className="w-3.5 h-3.5 text-gray-900" />
             Last 7 Days
           </div>
         </div>
@@ -171,7 +171,7 @@ export default function Dashboard() {
                   {/* The Bar */}
                   <div
                     style={{ height: `${Math.max(heightPercent, 8)}%` }}
-                    className="w-8 md:w-12 rounded-t bg-gradient-to-t from-zinc-800 to-white group-hover:from-zinc-700 group-hover:to-zinc-200 transition-all duration-300 relative overflow-hidden"
+                    className="w-8 md:w-12 rounded-t bg-gradient-to-t from-primary/20 to-primary group-hover:from-primary/30 group-hover:to-primary/80 transition-all duration-300 relative overflow-hidden"
                   >
                     {/* Pulsing glow inside the bar */}
                     <div className="absolute top-0 left-0 right-0 h-1 bg-white/20 animate-pulse-slow" />
@@ -179,7 +179,7 @@ export default function Dashboard() {
                 </div>
 
                 {/* X Axis Label */}
-                <span className="text-[10px] md:text-xs font-semibold text-zinc-400 group-hover:text-white transition">
+                <span className="text-[10px] md:text-xs font-semibold text-gray-500 group-hover:text-gray-900 transition">
                   {item.date}
                 </span>
               </div>
@@ -191,21 +191,21 @@ export default function Dashboard() {
       {/* Captured Visitor Leads Section */}
       <div className="glass-panel p-6 md:p-8 rounded-2xl flex flex-col gap-6 text-left">
         <div className="flex flex-col gap-0.5">
-          <h3 className="text-lg font-bold text-white">Captured Visitor Leads</h3>
-          <p className="text-xs text-zinc-400">Pre-chat contact details submitted by live website visitors</p>
+          <h3 className="text-lg font-bold text-gray-900">Captured Visitor Leads</h3>
+          <p className="text-xs text-gray-500">Pre-chat contact details submitted by live website visitors</p>
         </div>
 
         {leads.length === 0 ? (
-          <div className="py-10 text-center border border-dashed border-white/5 rounded-xl bg-white/[0.02] flex flex-col items-center gap-2">
-            <Users className="w-8 h-8 text-zinc-500 animate-pulse" />
-            <p className="text-sm font-semibold text-zinc-400">No visitor leads captured yet</p>
-            <p className="text-xs text-zinc-500 max-w-sm">When visitors open your chatbot, they will be prompted to enter their name and phone number before chatting.</p>
+          <div className="py-10 text-center border border-dashed border-gray-200 rounded-xl bg-gray-50 flex flex-col items-center gap-2">
+            <Users className="w-8 h-8 text-gray-500 animate-pulse" />
+            <p className="text-sm font-semibold text-gray-500">No visitor leads captured yet</p>
+            <p className="text-xs text-gray-500 max-w-sm">When visitors open your chatbot, they will be prompted to enter their name and phone number before chatting.</p>
           </div>
         ) : (
-          <div className="overflow-x-auto border border-white/5 rounded-xl bg-black/10">
+          <div className="overflow-x-auto border border-gray-200 rounded-xl bg-gray-50">
             <table className="w-full text-left border-collapse">
               <thead>
-                <tr className="border-b border-white/5 text-zinc-400 text-xs uppercase tracking-wider font-semibold">
+                <tr className="border-b border-gray-200 text-gray-500 text-xs uppercase tracking-wider font-semibold">
                   <th className="p-4">Visitor Name</th>
                   <th className="p-4">Phone Number</th>
                   <th className="p-4">Last Message</th>
@@ -214,11 +214,11 @@ export default function Dashboard() {
               </thead>
               <tbody>
                 {leads.map((lead) => (
-                  <tr key={lead._id} className="border-b border-white/5 hover:bg-white/[0.02] transition text-sm">
-                    <td className="p-4 font-bold text-white">{lead.name}</td>
-                    <td className="p-4 text-zinc-300 font-mono">{lead.phone}</td>
-                    <td className="p-4 text-zinc-400 truncate max-w-[200px]">{lead.lastMessage || 'Started conversation'}</td>
-                    <td className="p-4 text-zinc-500 text-xs">
+                  <tr key={lead._id} className="border-b border-gray-200 hover:bg-gray-50 transition text-sm">
+                    <td className="p-4 font-bold text-gray-900">{lead.name}</td>
+                    <td className="p-4 text-gray-600 font-mono">{lead.phone}</td>
+                    <td className="p-4 text-gray-500 truncate max-w-[200px]">{lead.lastMessage || 'Started conversation'}</td>
+                    <td className="p-4 text-gray-500 text-xs">
                       {new Date(lead.createdAt).toLocaleDateString('en-US', {
                         month: 'short',
                         day: 'numeric',
@@ -238,38 +238,38 @@ export default function Dashboard() {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         
         <div className="glass-panel p-6 rounded-2xl flex flex-col gap-4">
-          <h3 className="font-bold text-base text-white">Setup Checklist</h3>
-          <p className="text-xs text-zinc-400">Complete these steps to fully activate your AI receptionist</p>
+          <h3 className="font-bold text-base text-gray-900">Setup Checklist</h3>
+          <p className="text-xs text-gray-500">Complete these steps to fully activate your AI receptionist</p>
           
           <div className="flex flex-col gap-2">
-            <div className="flex items-center gap-3 p-3 rounded-xl bg-white/5 border border-white/5">
-              <span className="w-5 h-5 rounded-full bg-white/10 text-white flex items-center justify-center text-xs font-extrabold">✓</span>
-              <span className="text-xs font-semibold text-zinc-300">Create account & system access</span>
+            <div className="flex items-center gap-3 p-3 rounded-xl bg-white border border-gray-200">
+              <span className="w-5 h-5 rounded-full bg-gray-100 text-gray-900 flex items-center justify-center text-xs font-extrabold">✓</span>
+              <span className="text-xs font-semibold text-gray-600">Create account & system access</span>
             </div>
-            <div className="flex items-center gap-3 p-3 rounded-xl bg-white/5 border border-white/5">
-              <span className="w-5 h-5 rounded-full bg-white/10 text-white flex items-center justify-center text-xs font-extrabold">2</span>
-              <span className="text-xs font-semibold text-zinc-300">Configure chatbot tone & welcome copy</span>
+            <div className="flex items-center gap-3 p-3 rounded-xl bg-white border border-gray-200">
+              <span className="w-5 h-5 rounded-full bg-gray-100 text-gray-900 flex items-center justify-center text-xs font-extrabold">2</span>
+              <span className="text-xs font-semibold text-gray-600">Configure chatbot tone & welcome copy</span>
             </div>
-            <div className="flex items-center gap-3 p-3 rounded-xl bg-white/5 border border-white/5">
-              <span className="w-5 h-5 rounded-full bg-white/10 text-white flex items-center justify-center text-xs font-extrabold">3</span>
-              <span className="text-xs font-semibold text-zinc-300">Populate the Knowledge Base</span>
+            <div className="flex items-center gap-3 p-3 rounded-xl bg-white border border-gray-200">
+              <span className="w-5 h-5 rounded-full bg-gray-100 text-gray-900 flex items-center justify-center text-xs font-extrabold">3</span>
+              <span className="text-xs font-semibold text-gray-600">Populate the Knowledge Base</span>
             </div>
           </div>
         </div>
 
         <div className="glass-panel p-6 rounded-2xl flex flex-col justify-between gap-4">
           <div className="flex flex-col gap-2">
-            <h3 className="font-bold text-base text-white">Embed Code Snippet</h3>
-            <p className="text-xs text-zinc-400">Copy the script to integrate your chatbot with any HTML website in seconds.</p>
+            <h3 className="font-bold text-base text-gray-900">Embed Code Snippet</h3>
+            <p className="text-xs text-gray-500">Copy the script to integrate your chatbot with any HTML website in seconds.</p>
           </div>
-          <div className="bg-black/40 p-4 rounded-xl font-mono text-[11px] text-zinc-300 border border-white/5 select-all break-all leading-relaxed">
+          <div className="bg-gray-100 p-4 rounded-xl font-mono text-[11px] text-gray-600 border border-gray-200 select-all break-all leading-relaxed">
             {`<!-- OmniAI Widget -->
 <script
   src="${API_BASE_URL}/chatbot.js"
   data-user-id="${data.timeline.length ? 'YOUR_USER_ID' : '...'}">
 </script>`}
           </div>
-          <a href="/dashboard/embed" className="text-xs font-bold text-white hover:text-zinc-300 flex items-center gap-1">
+          <a href="/dashboard/embed" className="text-xs font-bold text-gray-900 hover:text-gray-600 flex items-center gap-1">
             Go to Embed Generator <ArrowRight className="w-3.5 h-3.5" />
           </a>
         </div>

@@ -129,17 +129,17 @@ export default function LeadsPage() {
   if (loading) {
     return (
       <div className="flex flex-col items-center justify-center py-24 gap-3">
-        <Loader2 className="w-8 h-8 animate-spin text-white" />
-        <p className="text-zinc-400 text-sm">Retrieving your captured leads...</p>
+        <Loader2 className="w-8 h-8 animate-spin text-gray-900" />
+        <p className="text-gray-500 text-sm">Retrieving your captured leads...</p>
       </div>
     );
   }
 
   if (error) {
     return (
-      <div className="p-6 rounded-2xl bg-white/5 border border-white/10 text-white flex flex-col gap-2">
+      <div className="p-6 rounded-2xl bg-white border border-gray-200 text-gray-900 flex flex-col gap-2">
         <h3 className="font-bold">Error Loading Leads</h3>
-        <p className="text-sm text-zinc-400">{error}</p>
+        <p className="text-sm text-gray-500">{error}</p>
       </div>
     );
   }
@@ -163,19 +163,19 @@ export default function LeadsPage() {
       {/* Page Header */}
       <div className="flex flex-col gap-1">
         <h1 className="text-3xl font-extrabold tracking-tight">Captured Leads</h1>
-        <p className="text-zinc-400 text-sm">Manage pre-chat contact details and inquiries submitted by live website visitors</p>
+        <p className="text-gray-500 text-sm">Manage pre-chat contact details and inquiries submitted by live website visitors</p>
       </div>
 
       {/* Main Leads Card */}
       <div className="glass-panel p-6 md:p-8 rounded-2xl flex flex-col gap-6 text-left">
-        <div className="flex flex-col sm:flex-row sm:items-center justify-between border-b border-white/5 pb-4 gap-4">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between border-b border-gray-200 pb-4 gap-4">
           <div className="flex items-center gap-2.5">
-            <div className="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-white">
+            <div className="w-10 h-10 rounded-xl bg-white border border-gray-200 flex items-center justify-center text-gray-900">
               <Users className="w-5 h-5" />
             </div>
             <div className="flex flex-col">
-              <span className="font-bold text-white text-base">Active Leads Directory</span>
-              <span className="text-xs text-zinc-400">{leads.length} leads captured in total</span>
+              <span className="font-bold text-gray-900 text-base">Active Leads Directory</span>
+              <span className="text-xs text-gray-500">{leads.length} leads captured in total</span>
             </div>
           </div>
 
@@ -183,7 +183,7 @@ export default function LeadsPage() {
             <div className="flex items-center gap-3 shrink-0">
               <button
                 onClick={handleExportToCSV}
-                className="flex items-center gap-2 py-2 px-4 rounded-xl text-xs font-bold bg-white/5 hover:bg-white/10 text-white border border-white/10 transition cursor-pointer"
+                className="flex items-center gap-2 py-2 px-4 rounded-xl text-xs font-bold bg-white hover:bg-gray-100 text-gray-900 border border-gray-200 transition cursor-pointer"
               >
                 <Download className="w-4 h-4 shrink-0" />
                 Export to Excel
@@ -191,7 +191,7 @@ export default function LeadsPage() {
 
               <button
                 onClick={handleDeleteAllLeads}
-                className="flex items-center gap-2 py-2 px-4 rounded-xl text-xs font-bold bg-red-500/10 hover:bg-red-500 text-red-500 hover:text-white border border-red-500/20 transition cursor-pointer"
+                className="flex items-center gap-2 py-2 px-4 rounded-xl text-xs font-bold bg-red-500/10 hover:bg-red-500 text-red-500 hover:text-gray-900 border border-red-500/20 transition cursor-pointer"
               >
                 <Trash2 className="w-4 h-4 shrink-0" />
                 Delete All Leads
@@ -201,21 +201,21 @@ export default function LeadsPage() {
         </div>
 
         {leads.length === 0 ? (
-          <div className="py-20 text-center border border-dashed border-white/5 rounded-xl bg-white/[0.02] flex flex-col items-center gap-3">
-            <div className="w-12 h-12 rounded-full bg-white/5 flex items-center justify-center text-zinc-500">
+          <div className="py-20 text-center border border-dashed border-gray-200 rounded-xl bg-gray-50 flex flex-col items-center gap-3">
+            <div className="w-12 h-12 rounded-full bg-white flex items-center justify-center text-gray-500">
               <Users className="w-6 h-6 animate-pulse" />
             </div>
-            <p className="text-sm font-semibold text-zinc-400">No leads captured yet</p>
-            <p className="text-xs text-zinc-500 max-w-sm leading-relaxed">
+            <p className="text-sm font-semibold text-gray-500">No leads captured yet</p>
+            <p className="text-xs text-gray-500 max-w-sm leading-relaxed">
               When visitors open your chatbot, they will be prompted to enter their name and phone number before starting their chat.
             </p>
           </div>
         ) : (
           <>
-            <div className="overflow-x-auto border border-white/5 rounded-xl bg-black/10">
+            <div className="overflow-x-auto border border-gray-200 rounded-xl bg-gray-50">
               <table className="w-full text-left border-collapse">
                 <thead>
-                  <tr className="border-b border-white/5 text-zinc-400 text-xs uppercase tracking-wider font-semibold bg-white/[0.01]">
+                  <tr className="border-b border-gray-200 text-gray-500 text-xs uppercase tracking-wider font-semibold bg-white/[0.01]">
                     <th className="p-4 pl-6">Visitor</th>
                     <th className="p-4">Phone Number</th>
                     <th className="p-4">Last Inquiry / Message</th>
@@ -227,25 +227,25 @@ export default function LeadsPage() {
                   {currentLeads.map((lead) => {
                     const initial = lead.name ? lead.name.charAt(0).toUpperCase() : '?';
                     return (
-                      <tr key={lead._id} className="border-b border-white/5 hover:bg-white/[0.02] transition text-sm">
+                      <tr key={lead._id} className="border-b border-gray-200 hover:bg-gray-50 transition text-sm">
                         {/* Name with elegant avatar */}
                         <td className="p-4 pl-6 flex items-center gap-3">
-                          <div className="w-8 h-8 rounded-full bg-gradient-to-tr from-zinc-800 to-zinc-700 flex items-center justify-center text-xs font-bold text-white border border-white/10">
+                          <div className="w-8 h-8 rounded-full bg-gradient-to-tr from-zinc-800 to-zinc-700 flex items-center justify-center text-xs font-bold text-gray-900 border border-gray-200">
                             {initial}
                           </div>
-                          <span className="font-bold text-white">{lead.name || 'Anonymous Guest'}</span>
+                          <span className="font-bold text-gray-900">{lead.name || 'Anonymous Guest'}</span>
                         </td>
 
                         {/* Phone with copy-button layout */}
                         <td className="p-4">
-                          <div className="flex items-center gap-2 text-zinc-300 font-mono text-xs bg-white/5 py-1 px-2.5 rounded-lg border border-white/5 w-fit">
-                            <Phone className="w-3 h-3 text-zinc-500 shrink-0" />
+                          <div className="flex items-center gap-2 text-gray-600 font-mono text-xs bg-white py-1 px-2.5 rounded-lg border border-gray-200 w-fit">
+                            <Phone className="w-3 h-3 text-gray-500 shrink-0" />
                             {lead.phone}
                           </div>
                         </td>
 
                         {/* Message excerpt */}
-                        <td className="p-4 text-zinc-400 truncate max-w-[280px]" title={lead.lastMessage}>
+                        <td className="p-4 text-gray-500 truncate max-w-[280px]" title={lead.lastMessage}>
                           <div className="flex items-center gap-2">
                             <MessageSquare className="w-3.5 h-3.5 text-zinc-600 shrink-0" />
                             <span className="truncate">{lead.lastMessage || 'Started conversation'}</span>
@@ -253,7 +253,7 @@ export default function LeadsPage() {
                         </td>
 
                         {/* Date with calendar icon */}
-                        <td className="p-4 text-zinc-500 text-xs">
+                        <td className="p-4 text-gray-500 text-xs">
                           <div className="flex items-center gap-1.5">
                             <Calendar className="w-3.5 h-3.5 text-zinc-600 shrink-0" />
                             {new Date(lead.createdAt).toLocaleDateString('en-US', {
@@ -269,7 +269,7 @@ export default function LeadsPage() {
                         <td className="p-4 pr-6 text-right">
                           <button
                             onClick={() => handleDeleteLead(lead._id)}
-                            className="p-2 rounded-lg text-zinc-400 hover:text-red-500 hover:bg-red-500/10 transition cursor-pointer"
+                            className="p-2 rounded-lg text-gray-500 hover:text-red-500 hover:bg-red-500/10 transition cursor-pointer"
                             title="Delete Lead"
                           >
                             <Trash2 className="w-4 h-4" />
@@ -284,16 +284,16 @@ export default function LeadsPage() {
 
             {/* Pagination Controls */}
             {totalPages > 1 && (
-              <div className="flex items-center justify-between border-t border-white/5 pt-4 mt-2">
-                <span className="text-xs text-zinc-400">
-                  Showing <span className="font-semibold text-white">{indexOfFirstLead + 1}</span> to <span className="font-semibold text-white">{Math.min(indexOfLastLead, leads.length)}</span> of <span className="font-semibold text-white">{leads.length}</span> leads
+              <div className="flex items-center justify-between border-t border-gray-200 pt-4 mt-2">
+                <span className="text-xs text-gray-500">
+                  Showing <span className="font-semibold text-gray-900">{indexOfFirstLead + 1}</span> to <span className="font-semibold text-gray-900">{Math.min(indexOfLastLead, leads.length)}</span> of <span className="font-semibold text-gray-900">{leads.length}</span> leads
                 </span>
 
                 <div className="flex items-center gap-2">
                   <button
                     onClick={handlePrevPage}
                     disabled={currentPage === 1}
-                    className="p-2 rounded-xl border border-white/10 bg-white/5 text-zinc-300 hover:bg-white/10 disabled:opacity-50 disabled:hover:bg-white/5 transition cursor-pointer"
+                    className="p-2 rounded-xl border border-gray-200 bg-white text-gray-600 hover:bg-gray-100 disabled:opacity-50 disabled:hover:bg-white transition cursor-pointer"
                   >
                     <ChevronLeft className="w-4 h-4" />
                   </button>
@@ -306,7 +306,7 @@ export default function LeadsPage() {
                         className={`w-8 h-8 rounded-xl font-bold transition cursor-pointer ${
                           currentPage === idx + 1
                             ? 'bg-white text-black'
-                            : 'border border-white/10 bg-white/5 text-zinc-300 hover:bg-white/10'
+                            : 'border border-gray-200 bg-white text-gray-600 hover:bg-gray-100'
                         }`}
                       >
                         {idx + 1}
@@ -317,7 +317,7 @@ export default function LeadsPage() {
                   <button
                     onClick={handleNextPage}
                     disabled={currentPage === totalPages}
-                    className="p-2 rounded-xl border border-white/10 bg-white/5 text-zinc-300 hover:bg-white/10 disabled:opacity-50 disabled:hover:bg-white/5 transition cursor-pointer"
+                    className="p-2 rounded-xl border border-gray-200 bg-white text-gray-600 hover:bg-gray-100 disabled:opacity-50 disabled:hover:bg-white transition cursor-pointer"
                   >
                     <ChevronRight className="w-4 h-4" />
                   </button>

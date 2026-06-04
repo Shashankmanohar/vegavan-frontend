@@ -181,8 +181,8 @@ export default function Settings() {
   if (loading) {
     return (
       <div className="flex flex-col items-center justify-center py-20 gap-3">
-        <Loader2 className="w-8 h-8 animate-spin text-white" />
-        <p className="text-zinc-400 text-sm">Loading Chatbot Settings...</p>
+        <Loader2 className="w-8 h-8 animate-spin text-gray-900" />
+        <p className="text-gray-500 text-sm">Loading Chatbot Settings...</p>
       </div>
     );
   }
@@ -200,7 +200,7 @@ export default function Settings() {
         userBubbleText: '#000000',
         assistantBubbleBg: 'rgba(255, 255, 255, 0.05)',
         assistantBubbleText: '#d4d4d8',
-        border: 'border-white/10',
+        border: 'border-gray-200',
         font: 'font-serif-classic',
       };
     } else if (designMode === 'modern') {
@@ -212,7 +212,7 @@ export default function Settings() {
         userBubbleText: '#ffffff',
         assistantBubbleBg: 'rgba(255, 255, 255, 0.03)',
         assistantBubbleText: '#a1a1aa',
-        border: 'border-zinc-800',
+        border: 'border-gray-200',
         font: 'font-sans',
       };
     } else if (designMode === 'warm') {
@@ -225,7 +225,7 @@ export default function Settings() {
         userBubbleText: '#ffffff',
         assistantBubbleBg: 'rgba(255, 255, 255, 0.02)',
         assistantBubbleText: '#e4e4e7',
-        border: 'border-zinc-800',
+        border: 'border-gray-200',
         font: 'font-serif-classic',
       };
     } else {
@@ -239,7 +239,7 @@ export default function Settings() {
         userBubbleText: '#ffffff',
         assistantBubbleBg: 'rgba(255, 255, 255, 0.03)',
         assistantBubbleText: '#e4e4e7',
-        border: 'border-zinc-800',
+        border: 'border-gray-200',
         font: 'font-sans',
       };
     }
@@ -252,33 +252,33 @@ export default function Settings() {
       {/* Page Head */}
       <div className="flex flex-col gap-1 text-left">
         <h1 className="text-3xl font-extrabold tracking-tight">Chatbot Configuration</h1>
-        <p className="text-zinc-400 text-sm">Personalize your AI, sculpt its design presets, and preview live layouts</p>
+        <p className="text-gray-500 text-sm">Personalize your AI, sculpt its design presets, and preview live layouts</p>
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
         {/* Settings Control Form */}
         <form onSubmit={handleSave} className="lg:col-span-7 flex flex-col gap-6 glass-panel p-6 md:p-8 rounded-2xl">
-          <h2 className="text-lg font-bold text-white border-b border-white/5 pb-3 flex items-center gap-2">
-            <Sparkles className="w-4.5 h-4.5 text-white" />
+          <h2 className="text-lg font-bold text-gray-900 border-b border-gray-200 pb-3 flex items-center gap-2">
+            <Sparkles className="w-4.5 h-4.5 text-gray-900" />
             AI Bot Settings
           </h2>
 
           {success && (
-            <div className="p-3.5 rounded-xl bg-white/10 border border-white/20 text-white text-xs font-semibold text-left">
+            <div className="p-3.5 rounded-xl bg-gray-100 border border-white/20 text-gray-900 text-xs font-semibold text-left">
               ✓ Settings saved successfully! Live previews updated with active design preset.
             </div>
           )}
 
           {error && (
-            <div className="p-3.5 rounded-xl bg-white/5 border border-white/10 text-white text-xs font-semibold text-left">
+            <div className="p-3.5 rounded-xl bg-white border border-gray-200 text-gray-900 text-xs font-semibold text-left">
               ⚠️ {error}
             </div>
           )}
 
           {/* Interactive Design Mode Preset Selector */}
           <div className="flex flex-col gap-2.5 text-left">
-            <label className="text-xs font-semibold text-zinc-400 flex items-center gap-1.5">
-              <Palette className="w-4 h-4 text-white" />
+            <label className="text-xs font-semibold text-gray-500 flex items-center gap-1.5">
+              <Palette className="w-4 h-4 text-gray-900" />
               Design Mode / Theme Preset
             </label>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
@@ -288,8 +288,8 @@ export default function Settings() {
                 className={`
                   p-4 rounded-xl border flex flex-col items-center gap-2 transition cursor-pointer
                   ${designMode === 'classic'
-                    ? 'bg-white/10 border-white text-white font-bold'
-                    : 'bg-white/5 border-white/5 text-zinc-400 hover:text-white hover:bg-white/10'
+                    ? 'bg-gray-100 border-white text-gray-900 font-bold'
+                    : 'bg-white border-gray-200 text-gray-500 hover:text-gray-900 hover:bg-gray-100'
                   }
                 `}
               >
@@ -303,8 +303,8 @@ export default function Settings() {
                 className={`
                   p-4 rounded-xl border flex flex-col items-center gap-2 transition cursor-pointer
                   ${designMode === 'modern'
-                    ? 'bg-white/10 border-white text-white font-bold'
-                    : 'bg-white/5 border-white/5 text-zinc-400 hover:text-white hover:bg-white/10'
+                    ? 'bg-gray-100 border-white text-gray-900 font-bold'
+                    : 'bg-white border-gray-200 text-gray-500 hover:text-gray-900 hover:bg-gray-100'
                   }
                 `}
               >
@@ -318,8 +318,8 @@ export default function Settings() {
                 className={`
                   p-4 rounded-xl border flex flex-col items-center gap-2 transition cursor-pointer
                   ${designMode === 'warm'
-                    ? 'bg-white/10 border-white text-white font-bold'
-                    : 'bg-white/5 border-white/5 text-zinc-400 hover:text-white hover:bg-white/10'
+                    ? 'bg-gray-100 border-white text-gray-900 font-bold'
+                    : 'bg-white border-gray-200 text-gray-500 hover:text-gray-900 hover:bg-gray-100'
                   }
                 `}
               >
@@ -333,8 +333,8 @@ export default function Settings() {
                 className={`
                   p-4 rounded-xl border flex flex-col items-center gap-2 transition cursor-pointer
                   ${designMode === 'custom'
-                    ? 'bg-white/10 border-white text-white font-bold'
-                    : 'bg-white/5 border-white/5 text-zinc-400 hover:text-white hover:bg-white/10'
+                    ? 'bg-gray-100 border-white text-gray-900 font-bold'
+                    : 'bg-white border-gray-200 text-gray-500 hover:text-gray-900 hover:bg-gray-100'
                   }
                 `}
               >
@@ -346,46 +346,46 @@ export default function Settings() {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             <div className="flex flex-col gap-1.5 text-left">
-              <label className="text-xs font-semibold text-zinc-400">Business Name</label>
+              <label className="text-xs font-semibold text-gray-500">Business Name</label>
               <input
                 type="text"
                 value={config.businessName}
                 onChange={(e) => setConfig({ ...config, businessName: e.target.value })}
-                className="w-full bg-white/5 border border-white/10 rounded-xl py-2.5 px-4 text-white text-sm outline-none focus:border-white/40 transition"
+                className="w-full bg-white border border-gray-200 rounded-xl py-2.5 px-4 text-gray-900 text-sm outline-none focus:border-white/40 transition"
                 required
               />
             </div>
 
             <div className="flex flex-col gap-1.5 text-left">
-              <label className="text-xs font-semibold text-zinc-400">Support Email</label>
+              <label className="text-xs font-semibold text-gray-500">Support Email</label>
               <input
                 type="email"
                 value={config.supportEmail}
                 onChange={(e) => setConfig({ ...config, supportEmail: e.target.value })}
-                className="w-full bg-white/5 border border-white/10 rounded-xl py-2.5 px-4 text-white text-sm outline-none focus:border-white/40 transition"
+                className="w-full bg-white border border-gray-200 rounded-xl py-2.5 px-4 text-gray-900 text-sm outline-none focus:border-white/40 transition"
                 required
               />
             </div>
 
             <div className="flex flex-col gap-1.5 text-left">
-              <label className="text-xs font-semibold text-zinc-400">Support Phone</label>
+              <label className="text-xs font-semibold text-gray-500">Support Phone</label>
               <input
                 type="text"
                 value={config.supportPhone || ''}
                 onChange={(e) => setConfig({ ...config, supportPhone: e.target.value })}
                 placeholder="+91 98765 43210"
-                className="w-full bg-white/5 border border-white/10 rounded-xl py-2.5 px-4 text-white text-sm outline-none focus:border-white/40 transition"
+                className="w-full bg-white border border-gray-200 rounded-xl py-2.5 px-4 text-gray-900 text-sm outline-none focus:border-white/40 transition"
               />
             </div>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div className="flex flex-col gap-1.5 text-left">
-              <label className="text-xs font-semibold text-zinc-400">Communication Tone</label>
+              <label className="text-xs font-semibold text-gray-500">Communication Tone</label>
               <select
                 value={config.tone}
                 onChange={(e) => setConfig({ ...config, tone: e.target.value })}
-                className="w-full bg-zinc-950 border border-white/10 rounded-xl py-2.5 px-4 text-white text-sm outline-none focus:border-white/40 transition"
+                className="w-full bg-white border border-gray-200 rounded-xl py-2.5 px-4 text-gray-900 text-sm outline-none focus:border-white/40 transition"
               >
                 <option value="friendly">Friendly & Warm</option>
                 <option value="professional">Professional & Polite</option>
@@ -394,7 +394,7 @@ export default function Settings() {
             </div>
 
             <div className="flex flex-col gap-1.5 text-left">
-              <label className="text-xs font-semibold text-zinc-400">
+              <label className="text-xs font-semibold text-gray-500">
                 {designMode === 'custom' ? 'Pick Custom Color' : 'Preset Hex Code'}
               </label>
               {designMode === 'custom' ? (
@@ -403,13 +403,13 @@ export default function Settings() {
                     type="color"
                     value={config.primaryColor || '#3b82f6'}
                     onChange={(e) => setConfig({ ...config, primaryColor: e.target.value })}
-                    className="w-12 h-10 border border-white/10 bg-transparent rounded-xl cursor-pointer p-0.5"
+                    className="w-12 h-10 border border-gray-200 bg-transparent rounded-xl cursor-pointer p-0.5"
                   />
                   <input
                     type="text"
                     value={config.primaryColor || '#3b82f6'}
                     onChange={(e) => setConfig({ ...config, primaryColor: e.target.value })}
-                    className="flex-1 bg-white/5 border border-white/10 rounded-xl py-2.5 px-4 text-white text-sm outline-none focus:border-white/40 transition font-mono"
+                    className="flex-1 bg-white border border-gray-200 rounded-xl py-2.5 px-4 text-gray-900 text-sm outline-none focus:border-white/40 transition font-mono"
                     placeholder="#3b82f6"
                   />
                 </div>
@@ -418,33 +418,33 @@ export default function Settings() {
                   type="text"
                   readOnly
                   value={designMode === 'classic' ? '#ffffff' : designMode === 'modern' ? '#09090b' : '#d4b27a'}
-                  className="w-full bg-white/5 border border-white/10 rounded-xl py-2.5 px-4 text-zinc-400 text-sm outline-none cursor-not-allowed select-none"
+                  className="w-full bg-white border border-gray-200 rounded-xl py-2.5 px-4 text-gray-500 text-sm outline-none cursor-not-allowed select-none"
                 />
               )}
             </div>
           </div>
 
           <div className="flex flex-col gap-1.5 text-left">
-            <label className="text-xs font-semibold text-zinc-400">Welcome Message</label>
+            <label className="text-xs font-semibold text-gray-500">Welcome Message</label>
             <input
               type="text"
               value={config.welcomeMessage}
               onChange={(e) => setConfig({ ...config, welcomeMessage: e.target.value })}
-              className="w-full bg-white/5 border border-white/10 rounded-xl py-2.5 px-4 text-white text-sm outline-none focus:border-white/40 transition"
+              className="w-full bg-white border border-gray-200 rounded-xl py-2.5 px-4 text-gray-900 text-sm outline-none focus:border-white/40 transition"
               required
             />
           </div>
 
           <div className="flex flex-col gap-1.5 text-left">
-            <label className="text-xs font-semibold text-zinc-400">Custom System Prompt (Instructions)</label>
+            <label className="text-xs font-semibold text-gray-500">Custom System Prompt (Instructions)</label>
             <textarea
               rows={4}
               value={config.systemPrompt}
               onChange={(e) => setConfig({ ...config, systemPrompt: e.target.value })}
-              className="w-full bg-white/5 border border-white/10 rounded-xl py-3 px-4 text-white text-sm outline-none focus:border-white/40 transition resize-none leading-relaxed"
+              className="w-full bg-white border border-gray-200 rounded-xl py-3 px-4 text-gray-900 text-sm outline-none focus:border-white/40 transition resize-none leading-relaxed"
               required
             />
-            <span className="text-[10px] text-zinc-500">
+            <span className="text-[10px] text-gray-500">
               Instruct your AI chatbot how to behave, what policies to follow, and when to refer customers to a support agent.
             </span>
           </div>
@@ -461,7 +461,7 @@ export default function Settings() {
 
         {/* Live Interactive Chat Preview */}
         <div className="lg:col-span-5 flex flex-col gap-4 self-stretch text-left">
-          <h2 className="text-sm font-semibold text-zinc-400 uppercase tracking-wider">Live Preview</h2>
+          <h2 className="text-sm font-semibold text-gray-500 uppercase tracking-wider">Live Preview</h2>
           
           <div className={`flex-1 glass-panel rounded-2xl flex flex-col overflow-hidden shadow-xl border ${preview.border} min-h-[480px]`}>
             {/* Widget Header */}
@@ -478,12 +478,16 @@ export default function Settings() {
               {previewMessages.map((msg, idx) => (
                 <div
                   key={idx}
-                  style={msg.role === 'user' ? { backgroundColor: preview.userBubbleBg, color: preview.userBubbleText } : { color: preview.assistantBubbleText }}
+                  style={
+                    msg.role === 'user' 
+                      ? { backgroundColor: preview.userBubbleBg, color: preview.userBubbleText } 
+                      : { backgroundColor: preview.assistantBubbleBg, color: preview.assistantBubbleText }
+                  }
                   className={`
                     max-w-[85%] rounded-xl py-2 px-3 text-xs leading-relaxed transition-all duration-300 ${preview.font}
                     ${msg.role === 'user'
                       ? 'align-self-end self-end rounded-br-none shadow-md shadow-white/2'
-                      : `bg-white/5 border border-white/5 self-start rounded-bl-none`
+                      : 'border border-white/10 self-start rounded-bl-none'
                     }
                   `}
                   dangerouslySetInnerHTML={{ __html: formatPreviewText(msg.content) }}
@@ -491,7 +495,7 @@ export default function Settings() {
               ))}
 
               {chatLoading && (
-                <div className="bg-white/5 border border-white/5 rounded-xl py-2 px-3 self-start rounded-bl-none flex items-center gap-1.5">
+                <div className="bg-white border border-gray-200 rounded-xl py-2 px-3 self-start rounded-bl-none flex items-center gap-1.5">
                   <div className="w-1.5 h-1.5 bg-white rounded-full animate-bounce" />
                   <div className="w-1.5 h-1.5 bg-white rounded-full animate-bounce [animation-delay:0.2s]" />
                   <div className="w-1.5 h-1.5 bg-white rounded-full animate-bounce [animation-delay:0.4s]" />
@@ -500,19 +504,19 @@ export default function Settings() {
             </div>
 
             {/* Input Footer */}
-            <div className="p-3 bg-zinc-900 border-t border-white/5 flex gap-2">
+            <div className="p-3 bg-gray-100 border-t border-gray-200 flex gap-2">
               <input
                 type="text"
                 value={userMsg}
                 onChange={(e) => setUserMsg(e.target.value)}
                 onKeyPress={(e) => e.key === 'Enter' && handleSendPreviewMsg()}
                 placeholder="Type a message..."
-                className="flex-1 bg-white/5 border border-white/5 rounded-full py-2 px-4 text-white text-xs outline-none focus:border-white/20 transition"
+                className="flex-1 bg-white border border-gray-200 rounded-full py-2 px-4 text-gray-900 text-xs outline-none focus:border-white/20 transition"
               />
               <button
                 onClick={handleSendPreviewMsg}
                 style={{ backgroundColor: preview.userBubbleBg, color: preview.userBubbleText }}
-                className="w-8 h-8 rounded-full flex items-center justify-center cursor-pointer transition-transform duration-300 hover:scale-105 border border-white/5 shadow-md shadow-white/2"
+                className="w-8 h-8 rounded-full flex items-center justify-center cursor-pointer transition-transform duration-300 hover:scale-105 border border-gray-200 shadow-md shadow-white/2"
               >
                 <Send className="w-3.5 h-3.5" />
               </button>
