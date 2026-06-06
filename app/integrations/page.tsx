@@ -180,7 +180,7 @@ export default function IntegrationsPage() {
                 <BookOpen className="w-6 h-6" />
               </div>
               <h3 className="text-xl font-bold text-gray-900 mb-3">Train Easily On Your Data</h3>
-              <p className="text-gray-600 leading-relaxed">Plug and play documentation sync. Upload standard PDFs, .docx, or scrape external URLs. The agent absorbs it all instantly.</p>
+              <p className="text-gray-600 leading-relaxed">Provide custom FAQ entries, company policies, or product specifications directly inside your dashboard. The AI trains itself instantly.</p>
             </div>
 
             <div className="bg-white p-8 rounded-xl shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
@@ -285,7 +285,7 @@ export default function IntegrationsPage() {
           <div className="flex flex-col items-center text-center gap-4 p-8 bg-gray-50 rounded-xl border border-gray-200 relative hover:-translate-y-1 hover:shadow-xl transition-all duration-300">
             <div className="w-12 h-12 bg-primary text-white rounded-full flex items-center justify-center font-bold text-xl mb-2 shadow-lg shadow-primary/20">1</div>
             <h3 className="font-bold text-xl text-gray-900">Create & Customize</h3>
-            <p className="text-sm text-gray-600 leading-relaxed">Sign up and configure your AI bot's personality, colors, and welcome message. Upload your PDFs or URLs to train its knowledge base.</p>
+            <p className="text-sm text-gray-600 leading-relaxed">Sign up and configure your AI bot's personality, colors, and welcome message. Provide custom FAQ entries or policies to train its knowledge base.</p>
           </div>
           <div className="flex flex-col items-center text-center gap-4 p-8 bg-gray-50 rounded-xl border border-gray-200 relative hover:-translate-y-1 hover:shadow-xl transition-all duration-300">
             <div className="w-12 h-12 bg-primary text-white rounded-full flex items-center justify-center font-bold text-xl mb-2 shadow-lg shadow-primary/20">2</div>

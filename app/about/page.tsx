@@ -119,7 +119,7 @@ export default function About() {
                 </div>
                 <h3 className="font-serif-classic text-xl font-bold text-gray-900 mb-3">Instant Knowledge Sync</h3>
                 <p className="text-gray-600 leading-relaxed text-xs">
-                  Connect your website, upload documents, or sync your help center. The AI ingests your brand's knowledge in seconds and stays updated automatically.
+                  Add target FAQ entries, company refund/shipping policies, product/service specs, and general documentation directly. The AI instantly trains on your business data.
                 </p>
               </div>
               

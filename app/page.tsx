@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { Phone, CheckCircle, ArrowRight, Shield, Zap, TrendingUp, Users, MessageCircle, BarChart, Palette } from 'lucide-react';
 import Logo from './components/Logo';
+import SectorsShowcase from './components/SectorsShowcase';
 
 export default function Home() {
   // AEO: FAQ Schema for Rich Snippets
@@ -26,10 +27,10 @@ export default function Home() {
       },
       {
         "@type": "Question",
-        "name": "Can Vegavan AI learn from my website?",
+        "name": "Can Vegavan AI learn from my business data?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Yes. Simply provide your website URL, PDFs, FAQs, or documents, and Vegavan AI will train itself on your business information."
+          "text": "Yes. Simply input your FAQs, company refund/shipping policies, product specifications, or general support text, and Vegavan AI will train itself on your business information."
         }
       },
       {
@@ -103,7 +104,7 @@ export default function Home() {
             </h1>
 
             <p className="text-base text-gray-600 leading-relaxed max-w-xl mt-4">
-              Automate customer support, capture leads, answer questions instantly, and increase sales. Powered by advanced artificial intelligence, Vegavan AI learns from your website and documents to provide accurate responses 24/7.
+              Automate customer support, capture leads, answer questions instantly, and increase sales. Powered by advanced artificial intelligence, Vegavan AI trains on your manual FAQs, product specs, and company policy documentation to provide accurate responses 24/7.
             </p>
 
             {/* Checklist */}
@@ -192,6 +193,126 @@ export default function Home() {
           </div>
         </section>
 
+        {/* Target Sectors / Industry Solutions Section */}
+        <section className="py-24 border-b border-gray-200 bg-gray-50/50 relative">
+          <div className="max-w-7xl mx-auto px-6">
+            <div className="text-center max-w-3xl mx-auto mb-20">
+              <span className="text-primary font-bold tracking-[0.2em] uppercase text-xs mb-3 block">Versatile Applications</span>
+              <h2 className="font-serif-classic text-4xl md:text-5xl text-gray-900 font-bold mb-6">Designed for Every Industry Sector</h2>
+              <p className="text-lg text-gray-600 leading-relaxed font-light">
+                Whether you run an online storefront, manage properties, or provide professional consultancy, Vegavan AI adapts to your industry vocabulary and operations.
+              </p>
+            </div>
+
+            <SectorsShowcase />
+          </div>
+        </section>
+
+        {/* Platform Capabilities Section */}
+        <section className="py-24 bg-white border-b border-gray-200 relative overflow-hidden">
+          <div className="max-w-7xl mx-auto px-6">
+            <div className="text-center max-w-3xl mx-auto mb-20">
+              <span className="text-primary font-bold tracking-[0.2em] uppercase text-xs mb-3 block">Platform Features</span>
+              <h2 className="font-serif-classic text-4xl md:text-5xl text-gray-900 font-bold mb-6">Fully Custom AI Tailored to Your Business</h2>
+              <p className="text-lg text-gray-600 leading-relaxed font-light">
+                Configure your AI chatbot receptionist with exact business guidelines, custom tones, and target knowledge bases.
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch">
+              
+              {/* Box 1: Knowledge Training Sources */}
+              <div className="bg-gray-50 border border-gray-200 rounded-3xl p-8 md:p-10 flex flex-col justify-between shadow-sm hover:shadow-md transition-all duration-300">
+                <div>
+                  <div className="inline-flex items-center justify-center bg-primary/10 text-primary rounded-2xl w-12 h-12 mb-6">
+                    <Zap className="w-6 h-6" />
+                  </div>
+                  <h3 className="text-2xl font-bold text-gray-900 mb-4">Supported Knowledge Sources</h3>
+                  <p className="text-sm text-gray-500 font-light mb-8">
+                    Train your AI agent instantly by populating your database with specific business information:
+                  </p>
+                  
+                  <ul className="flex flex-col gap-4 text-sm text-gray-700">
+                    <li className="flex items-start gap-3">
+                      <span className="w-5 h-5 rounded-full bg-primary/10 text-primary flex items-center justify-center text-xs font-bold shrink-0 mt-0.5">1</span>
+                      <div>
+                        <strong>FAQ Entry</strong>
+                        <p className="text-xs text-gray-500 font-light mt-0.5">Add common questions and answers for instant, automated user resolution.</p>
+                      </div>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <span className="w-5 h-5 rounded-full bg-primary/10 text-primary flex items-center justify-center text-xs font-bold shrink-0 mt-0.5">2</span>
+                      <div>
+                        <strong>Company Policy</strong>
+                        <p className="text-xs text-gray-500 font-light mt-0.5">Define company refund guidelines, shipping rules, and standard operating procedures.</p>
+                      </div>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <span className="w-5 h-5 rounded-full bg-primary/10 text-primary flex items-center justify-center text-xs font-bold shrink-0 mt-0.5">3</span>
+                      <div>
+                        <strong>Product / Service Spec</strong>
+                        <p className="text-xs text-gray-500 font-light mt-0.5">Provide detailed specifications, features list, and descriptions of what you offer.</p>
+                      </div>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <span className="w-5 h-5 rounded-full bg-primary/10 text-primary flex items-center justify-center text-xs font-bold shrink-0 mt-0.5">4</span>
+                      <div>
+                        <strong>General Documentation</strong>
+                        <p className="text-xs text-gray-500 font-light mt-0.5">Feed general business text, background context, and instructions directly into the AI memory.</p>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+
+              {/* Box 2: Tones and Branding Customization */}
+              <div className="bg-gray-50 border border-gray-200 rounded-3xl p-8 md:p-10 flex flex-col justify-between shadow-sm hover:shadow-md transition-all duration-300">
+                <div>
+                  <div className="inline-flex items-center justify-center bg-primary/10 text-primary rounded-2xl w-12 h-12 mb-6">
+                    <Palette className="w-6 h-6" />
+                  </div>
+                  <h3 className="text-2xl font-bold text-gray-900 mb-4">Communication Tones & Styling</h3>
+                  <p className="text-sm text-gray-500 font-light mb-8">
+                    Shape the personality and look of your AI to match your exact brand guidelines:
+                  </p>
+                  
+                  <ul className="flex flex-col gap-6 text-sm text-gray-700">
+                    <li className="flex items-start gap-3">
+                      <span className="w-2.5 h-2.5 rounded-full bg-green-500 shrink-0 mt-1.5"></span>
+                      <div>
+                        <strong>Friendly & Warm Voice</strong>
+                        <p className="text-xs text-gray-500 font-light mt-0.5">Warm, empathetic, and approachable conversational style perfect for retail and community support.</p>
+                      </div>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <span className="w-2.5 h-2.5 rounded-full bg-blue-500 shrink-0 mt-1.5"></span>
+                      <div>
+                        <strong>Professional & Polite Voice</strong>
+                        <p className="text-xs text-gray-500 font-light mt-0.5">Clear, business-oriented, and structured responses suitable for corporate and technical solutions.</p>
+                      </div>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <span className="w-2.5 h-2.5 rounded-full bg-purple-500 shrink-0 mt-1.5"></span>
+                      <div>
+                        <strong>Sales & Action-Oriented Voice</strong>
+                        <p className="text-xs text-gray-500 font-light mt-0.5">High-energy, conversion-focused prompts that pitch products, capture visitor details, and close deals.</p>
+                      </div>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <span className="w-2.5 h-2.5 rounded-full bg-zinc-950 shrink-0 mt-1.5"></span>
+                      <div>
+                        <strong>HSL Theme Presets & Color Customizer</strong>
+                        <p className="text-xs text-gray-500 font-light mt-0.5">Instantly match your website brand colors with our custom visual customizer and ready-made themes.</p>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </section>
+
         {/* Feature Highlights Section */}
         <section className="py-32 bg-surface border-b border-gray-200 relative overflow-hidden">
           <div className="max-w-7xl mx-auto px-6">
@@ -209,7 +330,7 @@ export default function Home() {
                 </div>
                 <h3 className="font-serif-classic text-2xl font-bold text-gray-900 mb-4">Instant Knowledge Sync</h3>
                 <p className="text-gray-600 leading-relaxed text-sm">
-                  Connect your website, upload documents, or sync your help center. The AI ingests your brand's knowledge in seconds and stays updated automatically.
+                  Add target FAQ entries, company refund/shipping policies, product/service specs, and general documentation directly. The AI instantly trains on your business data.
                 </p>
               </div>
               
@@ -259,7 +380,7 @@ export default function Home() {
                 </div>
                 <h3 className="font-serif-classic text-2xl font-bold text-gray-900 mb-4">Custom Brand Personas</h3>
                 <p className="text-gray-600 leading-relaxed text-sm">
-                  Ensure the AI perfectly matches your brand voice. Tune the tone, instructions, and personality for a deeply customized experience.
+                  Ensure the AI matches your brand voice. Tune the tone presets (Friendly & Warm, Professional & Polite, Sales & Action-Oriented) and custom styling colors instantly.
                 </p>
               </div>
             </div>
@@ -279,7 +400,7 @@ export default function Home() {
                     <div className="w-10 h-10 rounded-full bg-primary text-white flex items-center justify-center font-bold font-serif-classic shrink-0 text-lg">1</div>
                     <div>
                       <h4 className="text-xl font-bold text-gray-900 mb-2">Train the AI</h4>
-                      <p className="text-gray-600 text-sm leading-relaxed">Provide your website URL or upload your standard operating procedures. The AI trains itself instantly.</p>
+                      <p className="text-gray-600 text-sm leading-relaxed">Provide custom FAQ entries, company policies, or product specifications in seconds. The AI trains itself instantly.</p>
                     </div>
                   </div>
                   <div className="flex gap-6 items-start">

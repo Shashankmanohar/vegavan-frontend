@@ -28,6 +28,7 @@ interface AnalyticsData {
 export default function Dashboard() {
   const [data, setData] = useState<AnalyticsData | null>(null);
   const [leads, setLeads] = useState<Lead[]>([]);
+  const [user, setUser] = useState<{ plan: string; messageCount: number } | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
 
@@ -57,6 +58,17 @@ export default function Dashboard() {
         if (leadsRes.ok) {
           const leadsData = await leadsRes.json();
           setLeads(leadsData);
+        }
+
+        // Fetch User details for plan
+        const userRes = await fetch(`${API_BASE_URL}/api/auth/me`, {
+          headers: {
+            'Authorization': `Bearer ${token}`,
+          },
+        });
+        if (userRes.ok) {
+          const userData = await userRes.json();
+          setUser(userData);
         }
       } catch (err: any) {
         setError(err.message || 'Something went wrong');
@@ -97,12 +109,14 @@ export default function Dashboard() {
           <h1 className="text-3xl font-extrabold tracking-tight">Overview</h1>
           <p className="text-gray-500 text-sm">Monitor your customer engagement and AI responses</p>
         </div>
-        <div className="flex items-center gap-2 bg-white border border-gray-200 px-4 py-2.5 rounded-xl self-start">
+        <div className="flex items-center gap-3 bg-white border border-gray-200 px-4 py-2.5 rounded-xl self-start">
           <span className="flex h-2 w-2 relative">
-            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-75"></span>
-            <span className="relative inline-flex rounded-full h-2 w-2 bg-white"></span>
+            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+            <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
           </span>
-          <span className="text-[10px] font-bold uppercase tracking-wider text-gray-600">7-Day Free Trial Active</span>
+          <span className="text-[10px] font-bold uppercase tracking-wider text-gray-600">
+            Plan: {user?.plan || 'Starter'} ({user?.messageCount || 0} / {user?.plan === 'Starter' ? '1,000' : user?.plan === 'Professional' ? '5,000' : 'Unlimited'} msgs)
+          </span>
         </div>
       </div>
 

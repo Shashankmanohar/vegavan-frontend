@@ -64,59 +64,57 @@ export default function Signup() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-[#FAFAFA] px-4 font-sans text-black">
-      <div className="w-full max-w-[480px] p-8 flex flex-col items-center">
-        
-        {/* Logo */}
-        <div className="w-16 h-16 rounded-2xl bg-white shadow-[0_8px_30px_rgb(0,0,0,0.06)] flex items-center justify-center mb-10">
-          <Logo size="lg" />
-        </div>
+    <div className="relative min-h-screen flex items-center justify-center bg-gray-50 px-4 font-sans">
+      {/* Monochrome Glow Backdrop */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] rounded-full bg-primary/5 blur-[120px] pointer-events-none" />
 
-        {/* Headings */}
-        <div className="text-center mb-12">
-          <h2 className="text-[11px] font-bold text-gray-400 tracking-[0.15em] uppercase mb-4">
-            7-Day Unlimited Free Trial
-          </h2>
-          <p className="text-[15px] text-gray-500 font-light">
-            Start building your automated support engine today
-          </p>
+      <div className="z-10 w-full max-w-md p-8 md:p-10 rounded-3xl bg-white border border-gray-200 flex flex-col gap-6 shadow-xl">
+        {/* Logo and Head */}
+        <div className="flex flex-col gap-2 text-center">
+          <div className="w-12 h-12 rounded-xl bg-white border border-gray-100 flex items-center justify-center text-black shadow-sm self-center mb-2 p-1">
+            <Logo size="lg" className="text-black" />
+          </div>
+          <h2 className="font-display-modern text-3xl font-semibold text-gray-900 tracking-tight">Create Account</h2>
+          <p className="text-gray-500 text-sm">7-Day Unlimited Free Trial</p>
         </div>
 
         {/* Form */}
-        <form onSubmit={handleSignup} className="w-full flex flex-col gap-8">
+        <form onSubmit={handleSignup} className="flex flex-col gap-4">
           
           {error && (
-            <div className="p-4 rounded-2xl bg-red-50 text-red-600 border border-red-100 text-left flex gap-3 items-start text-sm">
-              <AlertTriangle className="w-5 h-5 shrink-0 mt-0.5" />
-              <span>{error}</span>
+            <div className="p-4 rounded-xl bg-red-50 border border-red-200 text-left flex gap-3 items-start animate-pulse">
+              <AlertTriangle className="w-5 h-5 text-red-600 shrink-0 mt-0.5" />
+              <div className="flex flex-col gap-1">
+                <span className="text-xs font-bold text-red-700 uppercase tracking-wider">Registration Issue</span>
+                <span className="text-xs leading-relaxed text-red-600">{error}</span>
+              </div>
             </div>
           )}
 
           {success && (
-            <div className="p-4 rounded-2xl bg-green-50 text-green-600 border border-green-100 text-left flex gap-3 items-start text-sm">
-              <CheckCircle className="w-5 h-5 shrink-0 mt-0.5" />
-              <span>{success}</span>
+            <div className="p-4 rounded-xl bg-green-50 border border-green-200 text-left flex gap-3 items-start">
+              <CheckCircle className="w-5 h-5 text-green-600 shrink-0 mt-0.5" />
+              <div className="flex flex-col gap-1">
+                <span className="text-xs font-bold text-green-700 uppercase tracking-wider">Registered</span>
+                <span className="text-xs leading-relaxed text-green-600">{success}</span>
+              </div>
             </div>
           )}
 
-          <div className="flex flex-col gap-3">
-            <label className="text-[11px] font-bold uppercase tracking-[0.1em] text-gray-400 pl-1">
-              Email Address
-            </label>
+          <div className="flex flex-col gap-1.5 text-left">
+            <label className="text-xs font-bold uppercase tracking-wider text-gray-600">Email Address</label>
             <input
               type="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               placeholder="name@company.com"
               required
-              className="w-full bg-transparent border-none py-1 pl-1 text-[15px] text-gray-700 placeholder:text-gray-400 outline-none focus:ring-0"
+              className="w-full bg-white border border-gray-300 rounded-xl py-3 px-4 text-gray-900 text-sm outline-none focus:border-primary focus:ring-1 focus:ring-primary transition"
             />
           </div>
 
-          <div className="flex flex-col gap-3">
-            <label className="text-[11px] font-bold uppercase tracking-[0.1em] text-gray-400 pl-1">
-              Password
-            </label>
+          <div className="flex flex-col gap-1.5 text-left">
+            <label className="text-xs font-bold uppercase tracking-wider text-gray-600">Password</label>
             <input
               type="password"
               value={password}
@@ -124,17 +122,17 @@ export default function Signup() {
               placeholder="••••••••"
               required
               minLength={6}
-              className="w-full bg-transparent border-none py-1 pl-1 text-[20px] tracking-widest text-gray-700 placeholder:text-gray-400 outline-none focus:ring-0"
+              className="w-full bg-white border border-gray-300 rounded-xl py-3 px-4 text-gray-900 text-sm outline-none focus:border-primary focus:ring-1 focus:ring-primary transition"
             />
           </div>
 
           <button
             type="submit"
             disabled={loading}
-            className="w-full bg-white hover:bg-gray-50 text-black font-bold uppercase tracking-[0.15em] text-[12px] py-5 rounded-2xl transition flex items-center justify-center gap-3 mt-4 shadow-[0_8px_30px_rgb(0,0,0,0.06)] border border-gray-100/50"
+            className="bg-gray-900 hover:bg-black text-white font-bold uppercase tracking-widest text-[12px] py-4 rounded-xl transition flex items-center justify-center gap-2 mt-2 cursor-pointer shadow-md hover:shadow-lg"
           >
             {loading ? (
-              <Loader2 className="w-4 h-4 animate-spin text-black" />
+              <Loader2 className="w-4 h-4 animate-spin text-white" />
             ) : (
               <>
                 Register Account
@@ -145,9 +143,10 @@ export default function Signup() {
         </form>
 
         {/* Footer */}
-        <div className="mt-12">
-          <Link href="/login" className="text-[14px] text-gray-400 font-light hover:text-gray-600 transition-colors">
-            Already have an account?
+        <div className="text-center text-sm text-gray-500 border-t border-gray-100 pt-5 mt-2">
+          Already have an account?{' '}
+          <Link href="/login" className="text-primary hover:text-primary/80 font-bold underline underline-offset-4">
+            Sign In
           </Link>
         </div>
       </div>
