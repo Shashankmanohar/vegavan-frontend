@@ -19,6 +19,7 @@ import {
   FileText,
   Copy
 } from 'lucide-react';
+import IntegrationIllustration from '../components/IntegrationIllustration';
 
 // Define the integration items
 const integrations = [
@@ -85,23 +86,28 @@ export default function IntegrationsPage() {
     <div className="min-h-screen bg-gray-50 flex flex-col font-sans">
       
       {/* Hero Section */}
-      <section className="bg-white border-b border-gray-200 py-20 px-6 relative overflow-hidden">
+      <section className="bg-white border-b border-gray-200 py-12 lg:py-20 px-6 relative overflow-hidden">
         <div className="absolute top-[-20%] right-[-10%] w-[50vw] h-[50vw] rounded-full bg-primary/5 blur-[120px] pointer-events-none" />
-        <div className="max-w-5xl mx-auto text-center relative z-10 flex flex-col items-center">
-          <span className="text-primary font-bold tracking-[0.2em] uppercase text-xs mb-4">Integrations</span>
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-black text-gray-900 tracking-tight leading-tight mb-6">
-            Connect Vegavan AI with your <span className="text-primary">Favorite Tools</span>
-          </h1>
-          <p className="text-lg text-gray-600 max-w-2xl leading-relaxed mb-10">
-            Seamlessly integrate our AI chatbot with the platforms you already use. Sync data, automate workflows, and provide support wherever your customers are.
-          </p>
-          <div className="flex gap-4">
-            <Link href="/signup" className="bg-[#E60000] hover:bg-[#cc0000] text-white font-bold px-8 py-3.5 rounded transition shadow-lg shadow-red-500/20">
-              Start Free Trial
-            </Link>
-            <Link href="/contact" className="bg-white hover:bg-gray-50 text-gray-900 border border-gray-200 font-bold px-8 py-3.5 rounded transition">
-              Request Integration
-            </Link>
+        <div className="max-w-6xl mx-auto relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+          <div className="lg:col-span-7 flex flex-col items-start text-left">
+            <span className="text-primary font-bold tracking-[0.2em] uppercase text-xs mb-4">Integrations</span>
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-black text-gray-900 tracking-tight leading-tight mb-6">
+              Connect Vegavan AI with your <span className="text-primary">Favorite Tools</span>
+            </h1>
+            <p className="text-lg text-gray-600 max-w-2xl leading-relaxed mb-10">
+              Seamlessly integrate our AI chatbot with the platforms you already use. Sync data, automate workflows, and provide support wherever your customers are.
+            </p>
+            <div className="flex gap-4">
+              <Link href="/signup" className="bg-[#E60000] hover:bg-[#cc0000] text-white font-bold px-8 py-3.5 rounded transition shadow-lg shadow-red-500/20">
+                Start Free Trial
+              </Link>
+              <Link href="/contact" className="bg-white hover:bg-gray-50 text-gray-900 border border-gray-200 font-bold px-8 py-3.5 rounded transition">
+                Request Integration
+              </Link>
+            </div>
+          </div>
+          <div className="lg:col-span-5 flex justify-center">
+            <IntegrationIllustration />
           </div>
         </div>
       </section>

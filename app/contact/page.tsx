@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import { Loader2, ArrowRight, Mail, MapPin, Building2, CheckCircle2, Phone } from 'lucide-react';
+import ContactIllustration from '../components/ContactIllustration';
 
 export default function Contact() {
   const [name, setName] = useState('');
@@ -39,17 +40,24 @@ export default function Contact() {
       <main className="relative w-full flex flex-col items-center">
 
         {/* Hero Section */}
-        <section className="w-full max-w-7xl mx-auto px-4 sm:px-6 md:px-10 pt-16 sm:pt-20 md:pt-32 pb-12 sm:pb-16 md:pb-24 flex flex-col items-center text-center relative z-10">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/5 text-primary border border-primary/10 text-[10px] sm:text-[11px] font-bold uppercase tracking-widest mb-6 sm:mb-8 shadow-sm">
-            Support & Sales
+        <section className="w-full max-w-7xl mx-auto px-4 sm:px-6 md:px-10 pt-16 sm:pt-20 md:pt-28 pb-12 sm:pb-16 md:pb-20 relative z-10">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            <div className="lg:col-span-7 flex flex-col items-start text-left">
+              <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/5 text-primary border border-primary/10 text-[10px] sm:text-[11px] font-bold uppercase tracking-widest mb-6 sm:mb-8 shadow-sm">
+                Support & Sales
+              </div>
+              <h1 className="font-serif-classic text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-gray-900 leading-[1.1] sm:leading-[1.05] max-w-4xl">
+                How can we help your <br className="hidden sm:block" />
+                <span className="text-primary italic">business grow?</span>
+              </h1>
+              <p className="mt-6 sm:mt-8 text-base sm:text-lg md:text-xl text-gray-600 max-w-2xl font-light leading-relaxed">
+                Whether you are looking for enterprise pricing, technical support, or strategic partnerships, our global team is ready to assist you.
+              </p>
+            </div>
+            <div className="lg:col-span-5 flex justify-center">
+              <ContactIllustration />
+            </div>
           </div>
-          <h1 className="font-serif-classic text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-gray-900 leading-[1.1] sm:leading-[1.05] max-w-4xl">
-            How can we help your <br className="hidden sm:block" />
-            <span className="text-primary italic">business grow?</span>
-          </h1>
-          <p className="mt-6 sm:mt-8 text-base sm:text-lg md:text-xl text-gray-600 max-w-2xl font-light leading-relaxed px-2">
-            Whether you are looking for enterprise pricing, technical support, or strategic partnerships, our global team is ready to assist you.
-          </p>
         </section>
 
         {/* Contact Infrastructure */}
